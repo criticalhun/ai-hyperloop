@@ -3,10 +3,7 @@ import axios from 'axios';
 
 const OLLAMA_URL = process.env.OLLAMA_API_URL || 'http://localhost:11434';
 
-interface GenerateResponse {
-  response: string;
-  done: boolean;
-}
+// A felesleges 'GenerateResponse' interfész eltávolítva innen.
 
 export class OllamaService {
   async generate(prompt: string, model: string = 'codellama:7b'): Promise<string> {

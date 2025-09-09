@@ -29,6 +29,10 @@ node_modules/
 /dist
 /build
 
+# Test reports
+/backend/coverage
+/tools/coverage
+
 # Flutter/Dart specific
 /app/build/
 /app/.dart_tool/

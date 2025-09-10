@@ -39,3 +39,13 @@ node_modules/
 /app/.packages
 /app/.flutter-plugins
 /app/.flutter-plugins-dependencies
+# Flutter/Dart specific
+/app/build/
+/app/.dart_tool/
+/app/.packages
+/app/.flutter-plugins
+/app/.flutter-plugins-dependencies
+
+# Auto-experimentation temporary files
+/app/temp_experiments/
+

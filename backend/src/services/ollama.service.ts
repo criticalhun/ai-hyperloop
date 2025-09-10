@@ -1,39 +1,21 @@
-// src/services/ollama.service.ts
+// backend/src/services/ollama.service.ts
 import axios from 'axios';
-
 const OLLAMA_URL = process.env.OLLAMA_API_URL || 'http://localhost:11434';
-
-// A felesleges 'GenerateResponse' interfész eltávolítva innen.
+const DEFAULT_MODEL = 'codellama:7b';
 
 export class OllamaService {
-  async generate(prompt: string, model: string = 'codellama:7b'): Promise<string> {
-    const response = await axios.post(
-      `${OLLAMA_URL}/api/generate`,
-      {
-        model: model,
-        prompt: prompt,
-        stream: false, // For simplicity, we disable streaming for now
-      },
-      {
-        headers: { 'Content-Type': 'application/json' },
-      }
+  async generate(prompt: string): Promise<string> {
+    const response = await axios.post(`${OLLAMA_URL}/api/generate`,
+      { model: DEFAULT_MODEL, prompt, stream: false },
+      { headers: { 'Content-Type': 'application/json' } }
     );
-
     return response.data.response;
   }
-
-  async createEmbedding(text: string, model: string = 'codellama:7b'): Promise<number[]> {
-    const response = await axios.post(
-        `${OLLAMA_URL}/api/embeddings`,
-        {
-            model: model,
-            prompt: text,
-        },
-        {
-            headers: { 'Content-Type': 'application/json' },
-        }
+  async createEmbedding(text: string): Promise<number[]> {
+    const response = await axios.post(`${OLLAMA_URL}/api/embeddings`,
+      { model: DEFAULT_MODEL, prompt: text },
+      { headers: { 'Content-Type': 'application/json' } }
     );
-
     return response.data.embedding;
   }
 }

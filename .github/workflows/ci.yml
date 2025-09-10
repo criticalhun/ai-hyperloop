@@ -31,6 +31,5 @@ jobs:
     - name: Run linter
       run: npm run lint
 
-    # A teszt futtatását később adjuk hozzá
-    # - name: Run tests
-    #   run: npm test
+    - name: Run tests
+      run: npm test

@@ -88,7 +88,7 @@ app.post('/api/generate-and-test', async (req: Request, res: Response) => {
 
         res.status(200).json({ generatedCode, analysisResult });
 
-    } catch (error: any) {
+    } catch (error: Errot | unknown) {
         console.error('Error in /api/generate-and-test:', error.message);
         res.status(200).json({
             generatedCode: generatedCode,

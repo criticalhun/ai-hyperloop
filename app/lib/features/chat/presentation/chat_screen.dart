@@ -120,7 +120,7 @@ class MessageComposer extends StatelessWidget {
               onSubmitted(textController.text);
               textController.clear();
             },
-            color: Theme.of(context).primaryColor,
+            color: Colors.blue,
           ),
         ],
       ),

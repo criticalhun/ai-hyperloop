@@ -30,6 +30,7 @@ class GeneratorScreen extends ConsumerWidget {
                 border: const OutlineInputBorder(),
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.send),
+                  color: Colors.blue,
                   onPressed: generatorState.isLoading
                       ? null
                       : () => ref.read(generatorStateProvider.notifier).generateCode(textController.text),
